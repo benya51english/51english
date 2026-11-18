@@ -118,6 +118,12 @@ footer h4{margin:0 0 8px;color:var(--cr);font:500 14px Unbounded}
 .play{flex:none;width:42px;height:42px;border-radius:50%;border:2px solid var(--ink);background:var(--gr);cursor:pointer;display:grid;place-items:center}
 .play svg{width:18px;height:18px}
 .opts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.word-bank{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 16px}
+.word{font:600 17px Onest;border:2px solid var(--ink);background:#fff;border-radius:10px;padding:9px 14px;cursor:pointer}
+.word:disabled{opacity:.35;cursor:default}
+.answer-line{min-height:54px;border:2px dashed #b9a97c;border-radius:10px;padding:9px;display:flex;gap:7px;flex-wrap:wrap;align-items:center;background:#fff9ea}
+.answer-line .word{background:var(--gr)}
+
 .opt{font:600 18px Onest;border:2px solid var(--ink);background:#fff;border-radius:10px;padding:10px 22px;cursor:pointer}
 .opt.sel{background:var(--ink);color:var(--cr)}
 input.ans{width:100%;font:600 20px Onest;padding:13px 14px;border:2px solid var(--ink);border-radius:10px;background:#fff;margin-bottom:14px}
@@ -285,7 +291,7 @@ details{border-bottom:2px solid var(--ink);padding:16px 0}summary{cursor:pointer
 <main id="cabinet" class="view"><div class="app"><div class="wrap">
 <div class="top"><div><p class="mono" style="color:var(--or)">Пятница, 18 ноября</p><h2>Привет, Алекс!</h2></div><span class="row"><a class="btn sm" href="#rewards">Награды</a><a class="btn sm ghost" style="color:var(--ink);border-color:var(--ink)" href="#home">Выйти</a></span></div>
 <div class="grid">
-<div class="card cont c8"><div><span class="mono">Продолжить · A1, урок 12</span><h3 style="margin:6px 0 4px">Глагол to be: I am, you are</h3><p style="opacity:.8;font-size:15px">Осталось 3 упражнения, примерно 6 минут</p></div><a class="btn" href="#lesson">Продолжить</a></div>
+<div class="card cont c8"><div><span class="mono">Продолжить · A0, урок 1</span><h3 style="margin:6px 0 4px">Первый контакт: приветствия и знакомство</h3><p style="opacity:.8;font-size:15px">8 заданий, примерно 7–10 минут</p></div><a class="btn" href="#lesson">Продолжить</a></div>
 <div class="card c4"><h3>Ежедневная цель</h3><div class="big">12 <span style="font-size:16px;font-family:Onest">из 15 минут</span></div><div class="bar" style="margin-top:10px"><i style="width:80%"></i></div></div>
 <div class="card c4"><h3>Твой уровень</h3><div class="big">A1</div><p style="margin:4px 0 12px;opacity:.8">Начальная подготовка</p><div class="bar"><i style="width:38%"></i></div><p class="mono" style="margin-top:6px;font-size:14px">38% программы пройдено</p></div>
 <div class="card c4"><h3>Изучено слов</h3><div class="big">147</div><p style="opacity:.8;margin-top:4px">+9 за эту неделю</p></div>
@@ -299,15 +305,20 @@ details{border-bottom:2px solid var(--ink);padding:16px 0}summary{cursor:pointer
 </div></div></div></main>
 
 <main id="lesson" class="view"><div class="app"><div class="lesson">
-<div class="top"><a href="#cabinet" style="font-size:15px">← В кабинет</a><span class="mono" id="cnt">Упражнение 1 из 3</span></div>
+<div class="top"><a href="#cabinet" style="font-size:15px">← В кабинет</a><span class="mono" id="cnt">Миссия 1 из 8</span></div>
 <div class="bar"><i id="pg" style="width:0"></i></div>
-<h2 style="margin:22px 0 14px">Глагол to be</h2>
-<div class="card"><h3>Коротко</h3><p>Английское <b>to be</b> — это «быть». В настоящем времени у него три формы: <b>I am</b>, <b>he / she / it is</b>, <b>you / we / they are</b>. По-русски мы его не произносим: «Я студент».</p></div>
-<div class="card" style="margin-top:12px"><h3>Примеры</h3>
-<div class="sent"><button class="play" data-s="I am a student." aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>I am a student.</em><small>Я студент.</small></div></div>
-<div class="sent"><button class="play" data-s="She is a pilot." aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>She is a pilot.</em><small>Она пилот.</small></div></div>
-<div class="sent"><button class="play" data-s="We are friends." aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>We are friends.</em><small>Мы друзья.</small></div></div></div>
-<div class="tip"><svg viewBox="0 0 100 100"><use href="#alien"/></svg><span>Подсказка: смотри на того, кто «делает»: I → am, she → is, they → are.</span></div>
+<h2 id="lessonTitle" style="margin:22px 0 14px">Первый контакт</h2>
+<div class="card"><h3>Твоя задача</h3><p>Научись поздороваться, назвать своё имя и поддержать самый первый короткий разговор на английском. Не пытайся выучить всё сразу — проходи по шагам.</p></div>
+<div class="card" style="margin-top:12px"><h3>Слова и фразы</h3>
+<div class="sent"><button class="play" data-s="Hello!" aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>Hello! / Hi!</em><small>Привет! Здравствуйте!</small></div></div>
+<div class="sent"><button class="play" data-s="Good morning!" aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>Good morning!</em><small>Доброе утро!</small></div></div>
+<div class="sent"><button class="play" data-s="My name is Alex." aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>My name is Alex.</em><small>Меня зовут Алекс.</small></div></div>
+<div class="sent"><button class="play" data-s="What's your name?" aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>What's your name?</em><small>Как тебя зовут?</small></div></div>
+<div class="sent"><button class="play" data-s="How are you?" aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>How are you?</em><small>Как дела?</small></div></div>
+<div class="sent"><button class="play" data-s="I'm fine, thank you." aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>I'm fine, thank you.</em><small>У меня всё хорошо, спасибо.</small></div></div>
+<div class="sent"><button class="play" data-s="Nice to meet you!" aria-label="Озвучить"><svg viewBox="0 0 20 20"><path d="M4 3l13 7-13 7z" fill="#101C35"/></svg></button><div><em>Nice to meet you!</em><small>Приятно познакомиться!</small></div></div>
+</div>
+<div class="tip"><svg viewBox="0 0 100 100"><use href="#alien"/></svg><span>Запомни: “My name is…” — «Меня зовут…». После этой фразы назови своё имя.</span></div>
 <div class="card ex" id="ex"></div>
 </div></div></main>
 
@@ -343,29 +354,62 @@ document.querySelectorAll('#tips button').forEach(function(b,i){b.onclick=functi
 /* audio */
 document.querySelectorAll('.play').forEach(function(b){b.onclick=function(){try{var u=new SpeechSynthesisUtterance(b.dataset.s);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}});
 /* lesson */
-var EX=[
-{q:'She ___ a pilot.',o:['am','is','are'],a:'is',w:'После she всегда is: she is, he is, it is.'},
-{q:'They ___ friends.',o:['am','is','are'],a:'are',w:'После they, we, you ставим are: they are, we are.'},
-{q:'Переведи: «Я студент»',t:1,a:'i am a student',show:'I am a student',w:'Русское «быть» мы пропускаем, а в английском it нужно сказать: I am.'}];
-var i=0,sel=null,box=document.getElementById('ex');
-function start(){i=0;draw()}
-function draw(){sel=null;var e=EX[i];
-document.getElementById('cnt').textContent='Упражнение '+(i+1)+' из '+EX.length;
-document.getElementById('pg').style.width=(i/EX.length*100)+'%';
-var h='<h3>Практика</h3><div class="q">'+e.q+'</div>';
-h+=e.t?'<input class="ans" id="in" autocomplete="off" placeholder="Напиши по-английски" aria-label="Ответ">':'<div class="opts">'+e.o.map(function(x){return '<button class="opt">'+x+'</button>'}).join('')+'</div>';
-h+='<button class="btn" id="chk">Проверить</button><div class="fb" id="fb" role="status"></div>';
-box.innerHTML=h;
-box.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){box.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');sel=b.textContent}});
-document.getElementById('chk').onclick=check}
-function check(){var e=EX[i],v=e.t?document.getElementById('in').value.trim().toLowerCase().replace(/[.!]/g,''):sel,fb=document.getElementById('fb');
-if(!v){fb.className='fb bad';fb.textContent='Сначала выбери или введи ответ.';return}
-var ok=v===e.a;fb.className='fb '+(ok?'ok':'bad');
-fb.innerHTML='<b>'+(ok?'Верно!':'Почти. Правильно: '+(e.show||e.a))+'</b><br>'+e.w;
-var b=document.getElementById('chk');b.textContent=i<EX.length-1?'Дальше':'Завершить';
-b.onclick=function(){if(i<EX.length-1){i++;draw()}else done()}}
-function done(){award(50);document.getElementById('pg').style.width='100%';
-box.innerHTML='<h3>Урок пройден</h3><p style="margin:8px 0 16px">+3 новых слова, серия 6 дней. Так держать!</p><a class="btn" href="#cabinet">В кабинет</a>'}
+ var EX=[
+  {type:'choice',q:'Что означает “Hello”?',o:['Пока!','Привет!','Спасибо!'],a:'Привет!',w:'“Hello” — универсальное приветствие. Его можно использовать и при встрече, и в более официальной ситуации.'},
+  {type:'choice',q:'Какое приветствие обычно используют утром?',o:['Good morning!','Good night!','Goodbye!'],a:'Good morning!',w:'“Good morning” означает «Доброе утро». “Good night” обычно говорят перед сном.'},
+  {type:'text',q:'Введи по-английски: «Как тебя зовут?»',a:['what is your name',"what's your name"],show:"What's your name?",w:'“What’s your name?” — вопрос о том, как зовут собеседника.'},
+  {type:'choice',q:'My name ___ Alex.',o:['am','is','are'],a:'is',w:'“My name is…” — устойчивая конструкция «Меня зовут…». Здесь используется is.'},
+  {type:'text',q:'Переведи на английский: «Меня зовут Алекс».',a:['my name is alex'],show:'My name is Alex.',w:'Начни с “My name is…”, затем добавь имя.'},
+  {type:'order',q:'Собери фразу: «Приятно познакомиться!»',words:['meet','Nice','you','to'],correct:['Nice','to','meet','you'],show:'Nice to meet you!',w:'Фраза строится так: Nice + to + meet + you.'},
+  {type:'choice',q:'Тебя спросили “How are you?”. Как можно ответить?',o:["I'm fine, thank you.",'My name is Alex.','Good morning!'],a:"I'm fine, thank you.",w:'“How are you?” — «Как дела?». Один из простых ответов: “I’m fine, thank you.”'},
+  {type:'text',q:'Введи фразу: «Приятно познакомиться!»',a:['nice to meet you'],show:'Nice to meet you!',w:'Запомни фразу целиком: “Nice to meet you!” — «Приятно познакомиться!»'}
+ ];
+ var i=0,sel=null,order=[],box=document.getElementById('ex');
+ function start(){i=0;draw()}
+ function draw(){
+  sel=null;order=[];var e=EX[i];
+  document.getElementById('cnt').textContent='Миссия '+(i+1)+' из '+EX.length;
+  document.getElementById('pg').style.width=(i/EX.length*100)+'%';
+  var h='<h3>Практика · задание '+(i+1)+'</h3><div class="q">'+e.q+'</div>';
+  if(e.type==='choice'){
+   h+='<div class="opts">'+e.o.map(function(x){return '<button class="opt" type="button">'+x+'</button>'}).join('')+'</div>';
+  }else if(e.type==='text'){
+   h+='<input class="ans" id="in" autocomplete="off" placeholder="Напиши ответ по-английски" aria-label="Ответ">';
+  }else{
+   h+='<div class="answer-line" id="answerLine"><span style="opacity:.55">Выбери слова в правильном порядке</span></div><div class="word-bank">'+e.words.map(function(x,n){return '<button class="word" type="button" data-word="'+n+'">'+x+'</button>'}).join('')+'</div><button class="btn sm ghost" style="color:var(--ink);border-color:var(--ink);margin:0 0 14px" id="resetOrder" type="button">Сбросить слова</button>';
+  }
+  h+='<button class="btn" id="chk" type="button">Проверить</button><div class="fb" id="fb" role="status"></div>';
+  box.innerHTML=h;
+  box.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){box.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');sel=b.textContent}});
+  if(e.type==='order'){
+   box.querySelectorAll('[data-word]').forEach(function(b){b.onclick=function(){var n=Number(b.dataset.word);if(order.indexOf(n)>-1)return;order.push(n);b.disabled=true;renderOrder()}});
+   document.getElementById('resetOrder').onclick=function(){order=[];box.querySelectorAll('[data-word]').forEach(function(b){b.disabled=false});renderOrder()};
+  }
+  document.getElementById('chk').onclick=check;
+ }
+ function renderOrder(){
+  var line=document.getElementById('answerLine'),e=EX[i];
+  line.innerHTML=order.length?order.map(function(n){return '<span class="word">'+e.words[n]+'</span>'}).join(''):'<span style="opacity:.55">Выбери слова в правильном порядке</span>';
+ }
+ function normalize(v){return v.trim().toLowerCase().replace(/[.!?,]/g,'').replace(/\s+/g,' ')}
+ function check(){
+  var e=EX[i],v='';
+  if(e.type==='choice')v=sel||'';
+  else if(e.type==='text')v=document.getElementById('in').value;
+  else v=order.map(function(n){return e.words[n]}).join(' ');
+  var fb=document.getElementById('fb');
+  if(!v){fb.className='fb bad';fb.textContent='Сначала выбери или введи ответ.';return}
+  var ok=e.type==='text'?e.a.some(function(a){return normalize(v)===normalize(a)}):normalize(v)===normalize(e.a||e.correct.join(' '));
+  fb.className='fb '+(ok?'ok':'bad');
+  fb.innerHTML='<b>'+(ok?'Верно!':'Почти. Правильный ответ: '+(e.show||e.a||e.correct.join(' ')))+'</b><br>'+e.w;
+  var b=document.getElementById('chk');b.textContent=i<EX.length-1?'Следующее задание':'Завершить миссию';
+  b.onclick=function(){if(i<EX.length-1){i++;draw()}else done()};
+ }
+ function done(){
+  award(50);document.getElementById('pg').style.width='100%';
+  try{S.completed=S.completed||[];if(S.completed.indexOf('first-contact')===-1)S.completed.push('first-contact');localStorage.setItem(K,JSON.stringify(S))}catch(e){}
+  box.innerHTML='<h3>Миссия выполнена!</h3><p style="margin:8px 0 16px">Ты познакомился с базовыми приветствиями и фразами для первого разговора. Повтори их вслух, чтобы лучше запомнить. За прохождение начислено 50 XP.</p><a class="btn" href="#cabinet">В кабинет</a> <a class="btn ghost" style="color:var(--ink);border-color:var(--ink)" href="#lesson">Пройти ещё раз</a>';
+ }
 paint();route();
 })();
 </script>
