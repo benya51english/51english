@@ -328,6 +328,7 @@ details{border-bottom:2px solid var(--ink);padding:16px 0}summary{cursor:pointer
 <h3 style="margin:26px 0 12px">Медали</h3><div class="medals" id="mds"></div>
 <div class="card" style="margin-top:20px"><h3>Как получать опыт</h3><p>+50 XP за каждый пройденный урок. Опыт повышает звание и открывает новые медали.</p></div>
 </div></div></main>
+<script src="lessons.js"></script>
 <script>
 (function(){
 var views=['home','cabinet','lesson','rewards'],nav=document.getElementById('nav');
@@ -354,6 +355,7 @@ document.querySelectorAll('#tips button').forEach(function(b,i){b.onclick=functi
 /* audio */
 document.querySelectorAll('.play').forEach(function(b){b.onclick=function(){try{var u=new SpeechSynthesisUtterance(b.dataset.s);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}});
 /* lesson */
+console.log(window.lessons);
  var EX=[
   {type:'choice',q:'Что означает “Hello”?',o:['Пока!','Привет!','Спасибо!'],a:'Привет!',w:'“Hello” — универсальное приветствие. Его можно использовать и при встрече, и в более официальной ситуации.'},
   {type:'choice',q:'Какое приветствие обычно используют утром?',o:['Good morning!','Good night!','Goodbye!'],a:'Good morning!',w:'“Good morning” означает «Доброе утро». “Good night” обычно говорят перед сном.'},
